@@ -7,10 +7,25 @@ version: '3.4'
         
 services:
 
+    # mysql:
+    #     image: gowthamgopal/mysql:configured
+    #     #network_mode: "bridge"
+    #     ports:
+    #         - "3306:3306"
+    #     deploy:
+    #         # placement:
+    #         #     constraints:
+    #         #         - node.role == manager 
+    #         replicas: 2
+    #         update_config:
+    #             failure_action: rollback
+    
     mysql:
-        image: gowthamgopal/mysql:configured
-        #network_mode: "bridge"
-        ports:
+        image: mysql
+        environment: 
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=mydb
+        ports: 
             - "3306:3306"
         deploy:
             # placement:
