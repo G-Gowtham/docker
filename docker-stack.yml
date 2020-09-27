@@ -1,15 +1,9 @@
 version: '3.4'
-
-# networks:
-#     default:
-#       external:
-#         name: bridge
-        
+       
 services:
 
     mysql:
-        image: mysql/mysql-server
-        #network_mode: "bridge"
+        image: mysql/mysql-server"
         ports:
             - "3306:3306"
         deploy:
@@ -34,14 +28,12 @@ services:
     #         replicas: 2
     #         update_config:
     #             failure_action: rollback
-
         
 
     my-server:
         image: gowthamgopal/apache2-php:configured
         ports:
             - "80:80"
-        #network_mode: "bridge"
         depends_on: 
             - "mysql"
         deploy:
