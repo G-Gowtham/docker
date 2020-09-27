@@ -8,7 +8,7 @@ version: '3.4'
 services:
 
     mysql:
-        image: gowthamgopal/mysql:configured
+        image: mysql/mysql-server
         #network_mode: "bridge"
         ports:
             - "3306:3306"
