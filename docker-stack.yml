@@ -16,7 +16,7 @@ services:
             # placement:
             #     constraints:
             #         - node.role == manager 
-            replicas: 3
+            replicas: 2
             update_config:
                 failure_action: rollback
 
