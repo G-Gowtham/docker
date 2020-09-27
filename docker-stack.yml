@@ -13,6 +13,9 @@ services:
         ports:
             - "3306:3306"
         deploy:
+            placement:
+                constraints:
+                    - node.role == manager 
             replicas: 1
             update_config:
                 failure_action: rollback
