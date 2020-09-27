@@ -8,10 +8,8 @@ networks:
 services:
 
     mysql:
-        image: : gowthamgopal/mysql:configured
+        image: gowthamgopal/mysql:configured
         network_mode: "bridge"
-        # ports: 
-        #     - 3306:3306
         deploy:
             replicas: 1
             update_config:
