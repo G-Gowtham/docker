@@ -1,0 +1,30 @@
+version: '3'
+
+networks:
+    default:
+      external:
+        name: bridge
+
+services:
+
+    my-db:
+        image: mysql
+        container_name: mysql
+        environment: 
+            - MYSQL_ROOT_PASSWORD_File=/run/secrets/mysql-pass
+            - MYSQL_DATABASE=mydb
+        network_mode: "bridge"
+        ports:
+            - 3308:3306
+        
+
+    my-server:
+        image: gowthamgopal/apache2-php:configured
+        container_name: apache2-php
+        ports:
+            - "8080:80"
+        links: 
+            - "mysql"
+        network_mode: "bridge"
+        depends_on: 
+            - "my-db"
